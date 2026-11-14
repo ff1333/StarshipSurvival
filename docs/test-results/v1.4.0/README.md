@@ -55,7 +55,7 @@ Windows 候选包：
 ## Git / PR
 
 - 分支：`feature/intelligent-combat-ai`
-- 发布候选 PR：<https://github.com/ff1333/NeonArena/pull/17>（Draft）
+- 发布候选 PR：<https://github.com/ff1333/StarshipSurvival/pull/17>（Draft）
 - 未合并；已建立不公开的 Draft Release（id `425471979`），其中旧附件来自防利用修复前构建，尚待替换。
 - 未发布公开的 `v1.4.0` GitHub Release；等待作者试玩与发布决定。
 - Windows 候选包：`Builds/Release/NeonArena-v1.4.0-Windows.zip`（53,515,434 bytes）。
