@@ -2,9 +2,9 @@
 
 使用 Unity 6 与 C# 开发的 2D 太空策略生存射击作品。玩家驾驶星舰从三种炮台中选择一座，在星空战场中移动、自动索敌、回收能量并通过三选一升级构筑最多六座炮台的组合。
 
-**v1.5.0 发布候选**：在 v1.4 智能首领和动态战斗导演基础上，统一为太空舰队视觉主题。玩家、三类敌舰、能量物、炮台、弹体、小首领指挥舰和最终首领旗舰使用可区分的轮廓与配色；背景改为低干扰星空，减少网格对移动判断和弹道可读性的干扰。
+**当前正式版为 v1.5.0**：在 v1.4 智能首领和动态战斗导演基础上，统一为太空舰队视觉主题。玩家、三类敌舰、能量物、炮台、弹体、小首领指挥舰和最终首领旗舰使用可区分的轮廓与配色；背景改为低干扰星空，减少网格对移动判断和弹道可读性的干扰。
 
-当前公开正式版仍为 `v1.3.0`。v1.5.0 的代码、自动测试、Windows 候选包和 Android 候选 APK 已完成，作者已确认最新版画面与移动手感可用；合并和新 Release 完成前仍按发布候选管理。实现与验证见 [v1.5.0 太空美术与构建记录](docs/devlogs/25-v1.5.0-space-art-build-verification.md)。
+v1.5.0 已完成代码合并、自动测试、Windows/Android 构建、作者基础试玩、版本标签和 GitHub Release。实现与验证见 [v1.5.0 太空美术与构建记录](docs/devlogs/25-v1.5.0-space-art-build-verification.md)。
 
 ![v1.3.0 title](docs/test-results/v1.3.0/native/v1.3.0-title-zh.png)
 
@@ -18,6 +18,7 @@ v1.4 候选包中的首领战与普通战斗：
 
 ## 下载与版本
 
+- [GitHub Release v1.5.0](https://github.com/ff1333/StarshipSurvival/releases/tag/v1.5.0)（当前正式版，Windows / Android）
 - [GitHub Release v1.3.0](https://github.com/ff1333/StarshipSurvival/releases/tag/v1.3.0)（历史正式版，Windows / WebGL / Android）
 - [作品集演示视频](https://github.com/ff1333/StarshipSurvival/releases/download/v1.3.0/NeonArena-v1.3.0-portfolio-720p.mp4)（v1.3.0 中文旁白与字幕，录制时仍使用旧名称）
 - [v1.4.0 Pull Request #17](https://github.com/ff1333/StarshipSurvival/pull/17)（历史发布候选记录）
@@ -26,7 +27,7 @@ v1.4 候选包中的首领战与普通战斗：
 - [GitHub Release v1.0.0](https://github.com/ff1333/StarshipSurvival/releases/tag/v1.0.0)（历史稳定版）
 - 已发布版本的 Release 附件包含 Windows、WebGL 和 Android 测试包，以及 SHA-256 校验文件。
 - `v1.3.0` Android APK 已由作者在真实设备上完成基本验收。
-- v1.5.0 Windows 与 Android 候选包已完成构建和基础试玩；GitHub 合并与新 Release 尚未执行。
+- v1.5.0 Windows 与 Android 正式附件已发布，基础试玩通过。
 
 ## 操作
 
@@ -129,10 +130,10 @@ docs/
 
 - PlayMode：`25/25 PASS`，覆盖原六武器闭环、Boss 六行为、冷却/重复惩罚、靠边偏好、半血环形弹幕、导演边界、防控血利用、恢复重新武装、升级选择和移动输入回归
 - 发布边界：`31/31 PASS`，覆盖 Main 场景、对象池、配置、Boss/导演配置、防利用参数、目标选择、版本和平台设置
-- Windows：v1.4.0 候选包启动、首领/战斗冒烟和自动完整通关均通过，详见 [v1.4.0 验证记录](docs/devlogs/22-v1.4.0-build-verification.md)
+- Windows：v1.5.0 正式包构建成功，独立 Player 战斗、小首领与最终首领冒烟通过
 - WebGL：已尝试构建，在本地 Player DAG 阶段停滞且无产物
-- Android：候选 APK 构建成功（0 errors / 0 warnings，50,968,035 bytes，debug 签名），最新移动平滑包待作者覆盖安装
-- 当前没有 v1.4.0 GitHub Release；不以候选包冒充已发布版本
+- Android：v1.5.0 APK 构建成功（0 errors / 0 warnings），作者已完成基础真机试玩
+- GitHub Release v1.5.0 已上传 Windows ZIP、Android APK 与 SHA-256 校验文件
 
 详细过程与适用边界见 [v1.3.0 验证证据](docs/test-results/v1.3.0/README.md)。
 
@@ -148,6 +149,7 @@ docs/
 ## 开发记录
 
 - [从启动到首领战的完整代码与开发解释](docs/PROJECT_DEVELOPMENT_EXPLAINED.md)
+- [v1.5.0 太空舰队美术、构建与发布验证](docs/devlogs/25-v1.5.0-space-art-build-verification.md)
 - [v1.4.0 智能首领、动态战斗导演与验证边界](docs/devlogs/21-v1.4.0-intelligent-combat.md)
 - [v1.4.0 人工验收清单](docs/V1_4_0_MANUAL_ACCEPTANCE.md)（历史候选验收记录）
 
