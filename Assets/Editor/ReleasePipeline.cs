@@ -12,23 +12,23 @@ using UnityEngine;
 
 public static class ReleasePipeline
 {
-    public const string Version = "1.4.0";
+    public const string Version = "1.5.0";
     private const string ReleaseBranch = "feature/intelligent-combat-ai";
     private const string MainScene = "Assets/Scenes/Main.unity";
     private const string Identifier = "com.ff1333.neonarenarebuild";
     private const string VerificationReport =
-        "docs/devlogs/22-v1.4.0-build-verification.md";
+        "docs/devlogs/25-v1.5.0-space-art-build-verification.md";
     private const string BossConfigPath =
         "Assets/Resources/Combat/BossDecisionConfig.asset";
     private const string DirectorConfigPath =
         "Assets/Resources/Combat/CombatDirectorConfig.asset";
     private const string ManualResultsHeading = "## Platform Builds";
 
-    [MenuItem("Build/Neon Arena/Configure Release Settings")]
+    [MenuItem("Build/Starship Survival/Configure Release Settings")]
     public static void ConfigureReleaseSettings()
     {
         PlayerSettings.companyName = "FF1333";
-        PlayerSettings.productName = "Neon Arena Rebuild";
+        PlayerSettings.productName = "Starship Survival";
         PlayerSettings.bundleVersion = Version;
         PlayerSettings.defaultScreenWidth = 1280;
         PlayerSettings.defaultScreenHeight = 720;
@@ -47,7 +47,7 @@ public static class ReleasePipeline
             NamedBuildTarget.Android,
             Identifier);
 
-        PlayerSettings.Android.bundleVersionCode = 5;
+        PlayerSettings.Android.bundleVersionCode = 6;
         PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel25;
         PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevel36;
         PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64;
@@ -62,7 +62,7 @@ public static class ReleasePipeline
         Debug.Log("Release player settings configured.");
     }
 
-    [MenuItem("Build/Neon Arena/Run Release Boundary Verification")]
+    [MenuItem("Build/Starship Survival/Run Release Boundary Verification")]
     public static void RunBoundaryVerification()
     {
         ConfigureReleaseSettings();
@@ -98,11 +98,11 @@ public static class ReleasePipeline
         Verify("Company name is release-ready",
             PlayerSettings.companyName == "FF1333", passed, failed);
         Verify("Product name is release-ready",
-            PlayerSettings.productName == "Neon Arena Rebuild", passed, failed);
+            PlayerSettings.productName == "Starship Survival", passed, failed);
         Verify($"Version is {Version}",
             PlayerSettings.bundleVersion == Version, passed, failed);
-        Verify("Android version code is 5",
-            PlayerSettings.Android.bundleVersionCode == 5, passed, failed);
+        Verify("Android version code is 6",
+            PlayerSettings.Android.bundleVersionCode == 6, passed, failed);
         Verify("Android identifier is release-ready",
             PlayerSettings.GetApplicationIdentifier(NamedBuildTarget.Android) ==
             Identifier, passed, failed);
@@ -132,23 +132,23 @@ public static class ReleasePipeline
         ExitBatchMode(failed.Count == 0);
     }
 
-    [MenuItem("Build/Neon Arena/Build Windows " + Version)]
+    [MenuItem("Build/Starship Survival/Build Windows " + Version)]
     public static void BuildWindows()
     {
         ConfigureReleaseSettings();
         Build(
             BuildTarget.StandaloneWindows64,
-            $"Builds/Windows/v{Version}/NeonArenaRebuild.exe");
+            $"Builds/Windows/v{Version}/StarshipSurvival.exe");
     }
 
-    [MenuItem("Build/Neon Arena/Build WebGL " + Version)]
+    [MenuItem("Build/Starship Survival/Build WebGL " + Version)]
     public static void BuildWebGL()
     {
         ConfigureReleaseSettings();
         Build(BuildTarget.WebGL, $"Builds/WebGL/v{Version}");
     }
 
-    [MenuItem("Build/Neon Arena/Build Android APK " + Version)]
+    [MenuItem("Build/Starship Survival/Build Android APK " + Version)]
     public static void BuildAndroid()
     {
         ConfigureJavaProxyFromSystem();
@@ -156,7 +156,7 @@ public static class ReleasePipeline
         EditorUserBuildSettings.buildAppBundle = false;
         Build(
             BuildTarget.Android,
-            $"Builds/Android/v{Version}/NeonArenaRebuild-v{Version}.apk");
+            $"Builds/Android/v{Version}/StarshipSurvival-v{Version}.apk");
     }
 
     private static void ConfigureJavaProxyFromSystem()

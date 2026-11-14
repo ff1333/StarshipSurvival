@@ -1,10 +1,10 @@
-# 霓虹竞技场 / Neon Arena
+# 星舰求生 / Starship Survival
 
-使用 Unity 6 与 C# 开发的 2D 生存射击作品。玩家开局从三种武器中选择一把，在有限竞技场中移动并自动射击，击败敌人获得经验，再通过三选一升级构筑最多六个武器槽位的组合。
+使用 Unity 6 与 C# 开发的 2D 太空策略生存射击作品。玩家驾驶星舰从三种炮台中选择一座，在星空战场中移动、自动索敌、回收能量并通过三选一升级构筑最多六座炮台的组合。
 
-**v1.4.0 发布候选**：Boss 不再固定轮播技能，而由 Utility AI 根据距离、玩家速度、场地位置和自身血量选择追击、预测冲刺、弹幕、区域轰炸、半血环形弹幕或重新站位；普通战斗由有上下限的动态战斗导演调整刷怪节奏、批次和敌人组合，残血重伤后会出现有限恢复窗口。
+**v1.5.0 发布候选**：在 v1.4 智能首领和动态战斗导演基础上，统一为太空舰队视觉主题。玩家、三类敌舰、能量物、炮台、弹体、小首领指挥舰和最终首领旗舰使用可区分的轮廓与配色；背景改为低干扰星空，减少网格对移动判断和弹道可读性的干扰。
 
-当前正式版仍为 `v1.3.0`。v1.4.0 的代码、自动测试、Windows 候选包和 Android 候选 APK 已完成；作者已试玩此前候选包并提出移动卡顿，本轮已完成移动平滑修复，最新 APK 仍需覆盖安装回归，因此暂不合并、不发布正式 Release。先看 [v1.4.0 发布候选说明](docs/RELEASE_NOTES_v1.4.0.md)、[PR #17](https://github.com/ff1333/NeonArena/pull/17) 及 [开发与验证记录](docs/devlogs/21-v1.4.0-intelligent-combat.md)。
+当前公开正式版仍为 `v1.3.0`。v1.5.0 的代码、自动测试、Windows 候选包和 Android 候选 APK 已完成，作者已确认最新版画面与移动手感可用；合并和新 Release 完成前仍按发布候选管理。实现与验证见 [v1.5.0 太空美术与构建记录](docs/devlogs/25-v1.5.0-space-art-build-verification.md)。
 
 ![v1.3.0 title](docs/test-results/v1.3.0/native/v1.3.0-title-zh.png)
 
@@ -18,15 +18,15 @@ v1.4 候选包中的首领战与普通战斗：
 
 ## 下载与版本
 
-- [GitHub Release v1.3.0](https://github.com/ff1333/NeonArena/releases/tag/v1.3.0)（当前正式版，Windows / WebGL / Android）
-- [作品集演示视频](https://github.com/ff1333/NeonArena/releases/download/v1.3.0/NeonArena-v1.3.0-portfolio-720p.mp4)（v1.3.0 中文旁白与字幕）
-- [v1.4.0 Pull Request #17](https://github.com/ff1333/NeonArena/pull/17)（发布候选，等待人工验收）
+- [GitHub Release v1.3.0](https://github.com/ff1333/StarshipSurvival/releases/tag/v1.3.0)（历史正式版，Windows / WebGL / Android）
+- [作品集演示视频](https://github.com/ff1333/StarshipSurvival/releases/download/v1.3.0/NeonArena-v1.3.0-portfolio-720p.mp4)（v1.3.0 中文旁白与字幕，录制时仍使用旧名称）
+- [v1.4.0 Pull Request #17](https://github.com/ff1333/StarshipSurvival/pull/17)（历史发布候选记录）
 - [v1.4.0 发布候选说明](docs/RELEASE_NOTES_v1.4.0.md)
-- [GitHub Release v1.1.0](https://github.com/ff1333/NeonArena/releases/tag/v1.1.0)（历史已发布版本）
-- [GitHub Release v1.0.0](https://github.com/ff1333/NeonArena/releases/tag/v1.0.0)（历史稳定版）
+- [GitHub Release v1.1.0](https://github.com/ff1333/StarshipSurvival/releases/tag/v1.1.0)（历史已发布版本）
+- [GitHub Release v1.0.0](https://github.com/ff1333/StarshipSurvival/releases/tag/v1.0.0)（历史稳定版）
 - 已发布版本的 Release 附件包含 Windows、WebGL 和 Android 测试包，以及 SHA-256 校验文件。
 - `v1.3.0` Android APK 已由作者在真实设备上完成基本验收。
-- v1.4.0 尚未发布；此前 Windows/Android 候选包已由作者试玩，2026-10-31 的移动平滑重建包待覆盖安装回归。
+- v1.5.0 Windows 与 Android 候选包已完成构建和基础试玩；GitHub 合并与新 Release 尚未执行。
 
 ## 操作
 
@@ -53,7 +53,7 @@ v1.4 候选包中的首领战与普通战斗：
 - 开发模式决策面板：显示 Boss 候选分数、压力、难度等级和实际刷怪参数（仅 Editor / Development Build，桌面 `F3`）
 - 默认中文，可切换英文；总音量、音乐、音效和静音设置本地保存
 - 开局武器三选一：选择完成前不计时、不刷怪，选中的武器占用第一个槽位
-- 三种数据驱动武器：Pistol、SMG、Laser，各自拥有伤害、射速、射程、弹速和颜色
+- 三种数据驱动炮台：Pulse、Rapid、Laser Turret，各自拥有伤害、射速、射程、弹速、弹体和颜色
 - 六个独立武器槽位，同类武器不设额外上限，每把武器独立冷却和索敌
 - 普通升级与每三级武器升级，包含伤害、射速、射程、移速、生命和拾取范围
 - 三类数据驱动敌人：Chaser、Dasher、Berserker，支持权重和解锁时间
@@ -123,7 +123,7 @@ docs/
 4. 打开 `Assets/Scenes/Main.unity`。
 5. 确认 Console 没有红色错误后点击编辑器顶部的三角形 Play 按钮。
 
-正式包可通过 Unity 菜单 `Build > Neon Arena` 的对应命令复现。生成的 `Builds/` 目录属于本地构建产物，不提交到 Git。
+正式包可通过 Unity 菜单 `Build > Starship Survival` 的对应命令复现。生成的 `Builds/` 目录属于本地构建产物，不提交到 Git。
 
 ## 验证结果
 
@@ -139,9 +139,9 @@ docs/
 ## 已知限制
 
 - 当前为单场景单机生存模式，没有存档成长、联网和完整商业化内容。
-- 角色和敌人采用简洁几何视觉，重点展示玩法代码、工程拆分和多平台交付。
+- 星舰、敌舰、炮台和首领采用统一的 2D 太空舰队视觉，重点展示玩法代码、工程拆分、战斗可读性和多平台交付。
 - Profiler 前后截图来自不同玩法规模的提交，只能证明实施了对象池和记录了代表帧，不能用于声称确定的性能提升比例。
-- Android v1.4.0 的真机覆盖、多型号兼容性、长时间压力和商店审核仍需按发布记录确认。
+- Android v1.5.0 已完成基础真机试玩；多型号兼容性、长时间压力和商店审核仍需按发布记录确认。
 - Boss 权重和导演参数已经可配置，但自动测试只证明规则和边界，不代表所有构筑下都已调平；不同构筑仍需持续试玩。
 - `v1.1.0`、`v1.0.0` 作为历史版本保留，不代表当前规则。
 
@@ -149,7 +149,7 @@ docs/
 
 - [从启动到首领战的完整代码与开发解释](docs/PROJECT_DEVELOPMENT_EXPLAINED.md)
 - [v1.4.0 智能首领、动态战斗导演与验证边界](docs/devlogs/21-v1.4.0-intelligent-combat.md)
-- [v1.4.0 人工验收清单](docs/V1_4_0_MANUAL_ACCEPTANCE.md)（尚未执行）
+- [v1.4.0 人工验收清单](docs/V1_4_0_MANUAL_ACCEPTANCE.md)（历史候选验收记录）
 
 - [v1.3.0 首领闭环、中英文设置与实现说明](docs/V1_3_0_BOSSES_AND_SETTINGS.md)
 - [v1.3.0 自动验证、平台构建与已知边界](docs/test-results/v1.3.0/README.md)

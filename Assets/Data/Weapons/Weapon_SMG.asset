@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon_SMG
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDefinition
   weaponType: 1
-  displayName: SMG
+  displayName: Rapid Turret
   icon: {fileID: 7482667652216324306, guid: 1ef0b9b5ca17f9345a058d088971c816, type: 3}
   projectileSprite: {fileID: 7482667652216324306, guid: 1ef0b9b5ca17f9345a058d088971c816, type: 3}
   displayColor: {r: 0.1764706, g: 0.83137256, b: 0.7490196, a: 1}

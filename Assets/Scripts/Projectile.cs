@@ -66,13 +66,13 @@ public class Projectile : MonoBehaviour
         releaseTime = Time.time + lifeTime;
 
         spriteRenderer.sprite = weapon.ProjectileSprite;
-        spriteRenderer.color = weapon.DisplayColor;
+        spriteRenderer.color = Color.white;
         trail.Clear();
         trail.startColor = weapon.DisplayColor;
         trail.endColor = new Color(weapon.DisplayColor.r,weapon.DisplayColor.g,weapon.DisplayColor.b,0f);
         trail.time = weapon.WeaponType == WeaponType.Laser ? .16f : .07f;
         trail.emitting = true;
-        transform.right = direction;
+        transform.up = direction;
     }
 
     private void Update()

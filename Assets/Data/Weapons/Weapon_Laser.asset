@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon_Laser
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDefinition
   weaponType: 2
-  displayName: Laser
+  displayName: Laser Turret
   icon: {fileID: 7482667652216324306, guid: 015e1068ac700624e9988bbaac285695, type: 3}
   projectileSprite: {fileID: 7482667652216324306, guid: 015e1068ac700624e9988bbaac285695, type: 3}
   displayColor: {r: 0.9411765, g: 0.32156864, b: 1, a: 1}

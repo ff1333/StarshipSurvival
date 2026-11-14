@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a366aa722e7e04fb00165064058035, type: 3}
   m_Name: Upgrade_EquipPistol
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUpgradeData
-  title: Equip Pistol
-  description: Add one pistol. Limited only by the 6 total slots.
+  title: Equip Pulse Turret
+  description: Add one pulse turret. Limited only by the 6 total turret slots.
   effectType: 7
   value: 0
   weapon: {fileID: 11400000, guid: d508886178115634d831932c4272aa51, type: 2}

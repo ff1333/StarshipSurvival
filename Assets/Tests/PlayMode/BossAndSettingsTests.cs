@@ -154,9 +154,9 @@ public sealed class BossAndSettingsTests
     {
         PortfolioSettings.SetLanguage(true);yield return null;
         var title=GameObject.Find("StartPanel").GetComponentsInChildren<TMP_Text>().First(t=>t.name=="TitleText");
-        title.GetComponent<LocalizedLabel>().Refresh();Assert.That(title.text,Is.EqualTo("霓虹竞技场"));
+        title.GetComponent<LocalizedLabel>().Refresh();Assert.That(title.text,Is.EqualTo("星舰求生"));
         PortfolioSettingsMenu.Instance.Open();game.StartRun();Assert.That(game.IsRunning,Is.False);
-        PortfolioSettings.SetLanguage(false);title.GetComponent<LocalizedLabel>().Refresh();Assert.That(title.text,Is.EqualTo("NEON ARENA"));
+        PortfolioSettings.SetLanguage(false);title.GetComponent<LocalizedLabel>().Refresh();Assert.That(title.text,Is.EqualTo("STARSHIP SURVIVAL"));
         PortfolioSettings.SetVolume("Master",.42f);PortfolioSettings.SetVolume("Music",.19f);PortfolioSettings.SetVolume("Effects",.23f);
         PortfolioSettings.SetSound(false);Assert.That(AudioListener.volume,Is.Zero);
         PortfolioSettingsMenu.Instance.Close();Assert.That(Time.timeScale,Is.Zero);

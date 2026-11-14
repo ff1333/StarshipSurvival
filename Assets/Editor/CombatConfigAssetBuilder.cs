@@ -8,7 +8,7 @@ public static class CombatConfigAssetBuilder
     private const string BossPath = Folder + "/BossDecisionConfig.asset";
     private const string DirectorPath = Folder + "/CombatDirectorConfig.asset";
 
-    [MenuItem("Neon Arena/Build Combat Config Assets")]
+    [MenuItem("Starship Survival/Build Combat Config Assets")]
     public static void Build()
     {
         if (!AssetDatabase.IsValidFolder(Folder))
@@ -31,6 +31,6 @@ public static class CombatConfigAssetBuilder
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-        Debug.Log("Neon Arena combat configuration assets are ready.");
+        Debug.Log("Starship Survival combat configuration assets are ready.");
     }
 }

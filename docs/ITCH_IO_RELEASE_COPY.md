@@ -4,8 +4,8 @@
 
 ## 基本设置
 
-- Title: `Neon Arena`
-- Project URL: `neon-arena-rebuild`
+- Title: `Starship Survival`
+- Project URL: `starship-survival`
 - Classification: `Games`
 - Kind of project: `HTML`
 - Release status: `Released`
@@ -23,9 +23,9 @@ A Unity 6 / C# 2D survival shooter featuring data-driven weapons and enemies, si
 ## 页面正文
 
 ```markdown
-# Neon Arena Rebuild
+# Starship Survival
 
-Neon Arena Rebuild is a 2D survival shooter rebuilt with Unity 6 and C# as a personal portfolio project.
+Starship Survival is a 2D space survival shooter built with Unity 6 and C# as a personal portfolio project.
 
 Move through a bounded arena while independent weapons automatically acquire targets. Defeated enemies drop experience, and each level offers one of three upgrades. Every third level prioritizes weapon choices, with up to six equipped weapon slots.
 
@@ -39,8 +39,8 @@ Move through a bounded arena while independent weapons automatically acquire tar
 
 ## Features
 
-- Pistol, SMG and Laser starting choice with independent range, fire rate and cooldown
-- Six total weapon slots with unrestricted same-type specialization
+- Pulse, Rapid and Laser Turret starting choice with independent range, fire rate and cooldown
+- Six total turret slots with unrestricted same-type specialization
 - Chaser, Dasher and Berserker enemy behaviors
 - Distinct experience pickup shapes for each enemy type
 - ScriptableObject-driven weapon, enemy and upgrade data
@@ -49,7 +49,7 @@ Move through a bounded arena while independent weapons automatically acquire tar
 - Windows, WebGL and Android build pipeline
 
 Source code, development logs and Windows/Android downloads:
-https://github.com/ff1333/NeonArena
+https://github.com/ff1333/StarshipSurvival
 
 This is a personal learning and portfolio rebuild, not a commercial release.
 ```

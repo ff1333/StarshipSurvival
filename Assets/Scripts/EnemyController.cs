@@ -104,7 +104,7 @@ public class EnemyController : MonoBehaviour
         isEnraged = false;
         nextDashTime = Time.time + definition.DashInterval;
         health.ResetHealth(definition.MaxHealth);
-        ApplyAppearance(definition.DisplayColor, 1f);
+        ApplyAppearance(definition.DisplayColor, 1f, false);
     }
 
     private void FixedUpdate()
@@ -143,7 +143,7 @@ public class EnemyController : MonoBehaviour
 
             isDashing = false;
             nextDashTime = Time.time + definition.DashInterval;
-            ApplyAppearance(definition.DisplayColor, 1f);
+            ApplyAppearance(definition.DisplayColor, 1f, false);
             return false;
         }
 
@@ -159,7 +159,7 @@ public class EnemyController : MonoBehaviour
             dashEndTime = Time.time + definition.DashDuration;
             dashDirection =
                 ((Vector2)target.position - body.position).normalized;
-            ApplyAppearance(definition.DisplayColor, 1f);
+            ApplyAppearance(definition.DisplayColor, 1f, false);
             return true;
         }
 
@@ -171,7 +171,7 @@ public class EnemyController : MonoBehaviour
         isPreparingDash = true;
         dashPreparationEndTime =
             Time.time + definition.DashTelegraphDuration;
-        ApplyAppearance(definition.DashTelegraphColor, 1.12f);
+        ApplyAppearance(definition.DashTelegraphColor, 1.12f, true);
         CombatFeedback.Instance?.PlayEnemyCharge(
             transform.position,
             definition.DashTelegraphColor);
@@ -224,7 +224,7 @@ public class EnemyController : MonoBehaviour
         }
 
         isEnraged = true;
-        ApplyAppearance(definition.EnragedColor, 1.08f);
+        ApplyAppearance(definition.EnragedColor, 1.08f, true);
         CombatFeedback.Instance?.PlayEnemyEnrage(
             transform.position,
             definition.EnragedColor);
@@ -264,14 +264,20 @@ public class EnemyController : MonoBehaviour
         poolMember.Release();
     }
 
-    private void ApplyAppearance(Color color, float stateScaleMultiplier)
+    private void ApplyAppearance(
+        Color color,
+        float stateScaleMultiplier,
+        bool tintSprite)
     {
         currentColor = color;
         Vector3 scale = authoredScale *
             definition.ScaleMultiplier * stateScaleMultiplier;
-        spriteRenderer.color = color;
+        Color spriteColor = tintSprite
+            ? Color.Lerp(Color.white, color, 0.48f)
+            : Color.white;
+        spriteRenderer.color = spriteColor;
         transform.localScale = scale;
-        hitFlash.SetBaseAppearance(color, scale);
+        hitFlash.SetBaseAppearance(spriteColor, scale);
     }
 
     private void FindCameraFeedback()

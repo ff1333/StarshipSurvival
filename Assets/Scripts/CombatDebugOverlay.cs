@@ -59,7 +59,7 @@ public sealed class CombatDebugOverlay : MonoBehaviour
         float width = 520f;
         float height = 250f;
         GUILayout.BeginArea(new Rect(12f, 12f, width, height), GUI.skin.box);
-        GUILayout.Label("NEON ARENA // COMBAT AI DEBUG  (F3)", titleStyle);
+        GUILayout.Label("STARSHIP SURVIVAL // COMBAT AI DEBUG  (F3)", titleStyle);
 
         if (boss == null)
         {

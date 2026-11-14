@@ -1,14 +1,14 @@
-# 霓虹竞技场完整开发解释
+# 星舰求生完整开发解释
 
 > **GitHub 展示版**：本文件与作者本地学习文档保持同步，用于公开说明项目架构、调用链、v1.4 AI 设计与验证边界。项目入口和运行方式见 [README](../README.md)。
 
-这是一份持续更新的学习文档，用来解释《霓虹竞技场》从启动到通关的完整代码流程。它不要求先记住所有脚本，而是帮助你建立“玩家操作发生后，哪些对象、组件和数据依次工作”的整体认识。
+这是一份持续更新的学习文档，用来解释《星舰求生》从启动到通关的完整代码流程。它不要求先记住所有脚本，而是帮助你建立“玩家操作发生后，哪些对象、组件和数据依次工作”的整体认识。
 
 当前解释对应 `v1.4.0` 发布候选：在 `v1.3.0` 完整流程上加入 Boss Utility AI、有边界的动态战斗导演和开发决策面板。后续新增功能时继续更新本文件，不再另起一套互相割裂的说明。
 
 ## 一、先用一句话理解游戏
 
-《霓虹竞技场》是一款 2D 生存射击游戏：
+《星舰求生》是一款 2D 太空策略生存射击游戏：
 
 ```text
 开始游戏
@@ -912,7 +912,7 @@ Health.Damaged / EnemyController.DiedGlobally
 - 发布候选文档与证据：`d0e616a docs: record v1.4 AI design tests and release evidence`
 - 防止低血量利用导演：`6298422 fix: prevent low-health director exploitation`
 - 功能分支：`feature/intelligent-combat-ai`
-- Draft PR：<https://github.com/ff1333/NeonArena/pull/17>
+- 历史 Draft PR：<https://github.com/ff1333/StarshipSurvival/pull/17>
 - Draft Release：id `425471979`，3 个附件，未发布。
 
 合并提交、公开 Release 链接和作者验收结果在发布完成后补记到总控文件。
@@ -943,4 +943,4 @@ Health.Damaged / EnemyController.DiedGlobally
 
 它有 3.5 秒持续时间、7 秒再次触发冷却，而且触发后必须把生命恢复到 55% 以上才能重新武装。它只停止新增刷怪，不清理场上敌人；持续控低血不能重复骗取恢复。
 
-具体阶段状态、测试结果和发布进度记录在 [README](../README.md)、[PR #17](https://github.com/ff1333/NeonArena/pull/17) 与 [v1.4 验证记录](test-results/v1.4.0/README.md)。
+具体阶段状态、测试结果和发布进度记录在 [README](../README.md)、[历史 PR #17](https://github.com/ff1333/StarshipSurvival/pull/17) 与 [v1.4 验证记录](test-results/v1.4.0/README.md)。
