@@ -120,7 +120,7 @@ public class PlayerShooter : MonoBehaviour
 
             Vector2 direction =
                 (target.transform.position - weapon.Slot.position).normalized;
-            weapon.Slot.right = direction;
+            weapon.Slot.up = direction;
 
             GameObject projectileObject = projectilePool.Get(
                 weapon.Slot.position,

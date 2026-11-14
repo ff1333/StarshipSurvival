@@ -19,9 +19,13 @@ public class WeaponDefinition : ScriptableObject
     public WeaponType WeaponType => weaponType;
     public string DisplayName => displayName;
     private Sprite presentationIcon;
+    private Sprite presentationProjectile;
     public Sprite Icon => presentationIcon != null ? presentationIcon
         : presentationIcon = Resources.Load<Sprite>("Polish/Weapon" + weaponType) ?? icon;
-    public Sprite ProjectileSprite => projectileSprite;
+    public Sprite ProjectileSprite => presentationProjectile != null
+        ? presentationProjectile
+        : presentationProjectile = Resources.Load<Sprite>(
+            "Polish/Projectile" + weaponType) ?? projectileSprite;
     public Color DisplayColor => displayColor;
     public float Damage => damage;
     public float FireInterval => fireInterval;

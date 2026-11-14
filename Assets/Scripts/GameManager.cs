@@ -41,6 +41,11 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Application.isMobilePlatform)
+        {
+            Application.targetFrameRate = 60;
+        }
+
         Time.timeScale = 0f;
         MobileControlsOverlay.SetGameplayActive(false);
         movement.enabled = false;
@@ -58,6 +63,9 @@ public class GameManager : MonoBehaviour
         pauseRestartButton.onClick.AddListener(RestartRun);
         restartButton.onClick.AddListener(RestartRun);
         gameObject.AddComponent<BossEncounter>().Initialize(this, shooter, playerHealth, progress, spawner, upgradeController);
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        gameObject.AddComponent<CombatDebugOverlay>();
+#endif
     }
 
     private void Start()

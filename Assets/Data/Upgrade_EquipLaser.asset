@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a366aa722e7e04fb00165064058035, type: 3}
   m_Name: Upgrade_EquipLaser
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUpgradeData
-  title: Equip Laser
-  description: Add one laser. Limited only by the 6 total slots.
+  title: Equip Laser Turret
+  description: Add one laser turret. Limited only by the 6 total turret slots.
   effectType: 7
   value: 0
   weapon: {fileID: 11400000, guid: 1105560f85bccf3439d64bad5eb0b55b, type: 2}

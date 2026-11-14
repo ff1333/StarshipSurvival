@@ -25,8 +25,11 @@ public sealed class ArenaPresentation : MonoBehaviour
         var player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
-            player.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Polish/Player");
-            player.GetComponent<SpriteRenderer>().color = new Color(.46f,1f,.77f);
+            var playerRenderer = player.GetComponent<SpriteRenderer>();
+            playerRenderer.sprite = Resources.Load<Sprite>("Polish/Player");
+            playerRenderer.color = Color.white;
+            if (player.GetComponent<PlayerShipPresentation>() == null)
+                player.AddComponent<PlayerShipPresentation>();
         }
         var arena = FindFirstObjectByType<ArenaBounds>();
         if (arena != null)
@@ -40,6 +43,7 @@ public sealed class ArenaPresentation : MonoBehaviour
             floor.drawMode = SpriteDrawMode.Tiled;
             floor.size = arena.Maximum - arena.Minimum;
             floor.sortingOrder = -30;
+            BuildArenaBoundary(arena);
         }
         foreach (var image in FindObjectsByType<Image>(FindObjectsInactive.Include,FindObjectsSortMode.None))
         {
@@ -98,6 +102,37 @@ public sealed class ArenaPresentation : MonoBehaviour
     private static void Place(RectTransform rect, Vector2 min, Vector2 max)
     {
         rect.anchorMin=min; rect.anchorMax=max; rect.offsetMin=rect.offsetMax=Vector2.zero;
+    }
+
+    private void BuildArenaBoundary(ArenaBounds arena)
+    {
+        Vector2 minimum = arena.Minimum;
+        Vector2 maximum = arena.Maximum;
+
+        Vector3[] border =
+        {
+            new Vector3(minimum.x, minimum.y),
+            new Vector3(maximum.x, minimum.y),
+            new Vector3(maximum.x, maximum.y),
+            new Vector3(minimum.x, maximum.y)
+        };
+        var borderLine = CreateLine("Arena Perimeter", new Color(.3f, .76f, .9f, .18f), .03f, -19);
+        borderLine.positionCount = border.Length;
+        borderLine.loop = true;
+        borderLine.SetPositions(border);
+    }
+
+    private LineRenderer CreateLine(string objectName, Color color, float width, int sortingOrder)
+    {
+        var root = new GameObject(objectName);
+        root.transform.SetParent(transform, false);
+        var line = root.AddComponent<LineRenderer>();
+        line.sharedMaterial = TrailMaterial;
+        line.useWorldSpace = true;
+        line.startWidth = line.endWidth = width;
+        line.startColor = line.endColor = color;
+        line.sortingOrder = sortingOrder;
+        return line;
     }
 
     public static Material TrailMaterial

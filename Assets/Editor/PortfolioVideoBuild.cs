@@ -8,7 +8,7 @@ public static class PortfolioVideoBuild
 {
     public static void BuildWindows()
     {
-        const string output = "Builds/PortfolioCapture/NeonArenaCapture.exe";
+        const string output = "Builds/PortfolioCapture/StarshipSurvivalCapture.exe";
         Directory.CreateDirectory(Path.GetDirectoryName(output));
         var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions
         {

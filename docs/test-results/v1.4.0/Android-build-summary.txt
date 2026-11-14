@@ -1,0 +1,6 @@
+Result: Succeeded
+Platform: Android
+Duration: 00:04:16.8917014
+Size: 835665446
+Errors: 0
+Warnings: 0

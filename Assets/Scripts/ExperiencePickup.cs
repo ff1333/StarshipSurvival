@@ -93,6 +93,13 @@ public class ExperiencePickup : MonoBehaviour
             return sprite;
         }
 
+        sprite = Resources.Load<Sprite>("Polish/Energy" + shape);
+        if (sprite != null)
+        {
+            GeneratedSprites.Add(shape, sprite);
+            return sprite;
+        }
+
         Texture2D texture = new Texture2D(
             SpriteSize,
             SpriteSize,

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon_Pistol
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDefinition
   weaponType: 0
-  displayName: Pistol
+  displayName: Pulse Turret
   icon: {fileID: -2413806693520163455, guid: a7134bd3bbbb03f4ea13a5256be6acf9, type: 3}
   projectileSprite: {fileID: -2413806693520163455, guid: a7134bd3bbbb03f4ea13a5256be6acf9, type: 3}
   displayColor: {r: 1, g: 0.83137256, b: 0.23137255, a: 1}
