@@ -143,7 +143,7 @@
 - Unity 生命周期方法及调用时机：`Awake` 缓存组件与原始缩放；`OnEnable` 为每次复用重置 collected 并重新寻找 Player；`Update` 处理磁吸移动；`OnTriggerEnter2D` 处理领取。
 - 依赖哪些其他组件：PoolMember、SpriteRenderer、Collider2D；EnemyDefinition 传入的掉落样式；Player 标签和 PlayerProgress。
 - 一个正常流程：敌人死亡 -> 经验池 Get -> `Configure(value, shape, color, scale)` 覆盖上次状态 -> 玩家进入半径后靠近 -> 触发 Player -> 增加经验 -> 回池。
-- 一个边界情况：同一个池对象上次可能是紫色六边形，本次可能是绿色菱形，因此 Configure 必须同时覆盖数值和全部视觉字段；`collected` 防止同一周期重复加经验。
+- 一个边界情况：同一个池对象上次可能显示紫色护盾核心，本次可能需要显示绿色闪电核心，因此 `Configure` 必须同时覆盖数值和全部视觉字段；`collected` 防止同一周期重复加经验。
 - 如果删除这个脚本，游戏会怎样：经验物可能显示在场景中，但不会吸附、增加经验或正确回池。
 - 核心问题：吸附只负责移动，真正领取由触发器确认；池化实例的逻辑状态和视觉状态都必须重置，不能只改经验值。
 - 面试讲法：三种敌人仍共享一个经验池，EnemyDefinition 提供掉落样式，Configure 覆盖复用实例；三个 64×64 Sprite 首次使用时生成并缓存，避免每次掉落创建纹理。

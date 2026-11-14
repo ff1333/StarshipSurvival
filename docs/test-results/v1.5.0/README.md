@@ -10,6 +10,7 @@
 - Android release build: `0 errors / 0 warnings`
 - Windows independent Player smoke test: title, normal combat, six-turret loadout, Warden fight and Overlord fight checked
 - Android physical-device basic gameplay acceptance: passed by the author
+- The title capture was regenerated from the final v1.5.0 Windows release package; the obsolete center cross and tactical grid are not present
 
 ## Runtime Captures
 

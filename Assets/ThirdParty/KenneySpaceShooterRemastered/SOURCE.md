@@ -11,4 +11,4 @@ The original asset pack is stored outside the Unity project at:
 
 Selected PNG files are copied into `Assets/Resources/Polish` and keep their
 original artwork. Runtime scripts handle orientation, tinting, scale, trails,
-and tactical-grid presentation.
+the low-interference starfield, and the outer arena boundary.
