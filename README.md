@@ -4,17 +4,17 @@
 
 **当前正式版为 v1.5.0**：在 v1.4 智能首领和动态战斗导演基础上，统一为太空舰队视觉主题。玩家、三类敌舰、能量物、炮台、弹体、小首领指挥舰和最终首领旗舰使用可区分的轮廓与配色；背景改为低干扰星空，减少网格对移动判断和弹道可读性的干扰。
 
-v1.5.0 已完成代码合并、自动测试、Windows/Android 构建、作者基础试玩、版本标签和 GitHub Release。实现与验证见 [v1.5.0 太空美术与构建记录](docs/devlogs/25-v1.5.0-space-art-build-verification.md)。
+v1.5.0 已完成代码合并、自动测试、Windows/Android 构建、作者基础试玩、版本标签和 GitHub Release。实现与验证见 [v1.5.0 太空美术与构建记录](docs/devlogs/25-v1.5.0-space-art-build-verification.md)和 [v1.5.0 运行证据](docs/test-results/v1.5.0/README.md)。
 
-![v1.3.0 title](docs/test-results/v1.3.0/native/v1.3.0-title-zh.png)
+![星舰求生 v1.5.0 中文开始界面](docs/test-results/v1.5.0/native/v1.5.0-title.png)
 
-![Golden rewards](docs/test-results/v1.3.0/native/v1.3.0-rewards-zh.png)
-
-v1.4 候选包中的首领战与普通战斗：
-
-| 首领战 | 战斗与经验物 |
+| 太空战斗与能量物 | 六炮台构筑 |
 |---|---|
-| ![v1.4 boss](docs/test-results/v1.4.0/native/v1.4.0-boss.png) | ![v1.4 combat](docs/test-results/v1.4.0/native/v1.4.0-combat.png) |
+| ![太空战斗与能量物](docs/test-results/v1.5.0/native/v1.5.0-gameplay.png) | ![六炮台构筑](docs/test-results/v1.5.0/native/v1.5.0-turret-loadout.png) |
+
+| 小首领指挥舰 | 最终首领旗舰 |
+|---|---|
+| ![小首领指挥舰](docs/test-results/v1.5.0/native/v1.5.0-warden.png) | ![最终首领旗舰](docs/test-results/v1.5.0/native/v1.5.0-overlord.png) |
 
 ## 下载与版本
 
@@ -25,50 +25,45 @@ v1.4 候选包中的首领战与普通战斗：
 - [v1.4.0 发布候选说明](docs/RELEASE_NOTES_v1.4.0.md)
 - [GitHub Release v1.1.0](https://github.com/ff1333/StarshipSurvival/releases/tag/v1.1.0)（历史已发布版本）
 - [GitHub Release v1.0.0](https://github.com/ff1333/StarshipSurvival/releases/tag/v1.0.0)（历史稳定版）
-- 已发布版本的 Release 附件包含 Windows、WebGL 和 Android 测试包，以及 SHA-256 校验文件。
-- `v1.3.0` Android APK 已由作者在真实设备上完成基本验收。
-- v1.5.0 Windows 与 Android 正式附件已发布，基础试玩通过。
+- v1.5.0 Release 包含 Windows、Android 与 SHA-256 校验文件；WebGL 包保留在支持该平台的历史版本中。
+- v1.5.0 Windows 与 Android 正式附件已发布，Windows 独立 Player 和 Android 真机基础试玩通过。
 
 ## 操作
 
 ### Windows / WebGL
 
 - `WASD` 或方向键：移动
-- `Enter`：进入初始武器选择
+- `Enter`：进入初始炮台选择
 - `Esc`：暂停或继续
 - `R`：结算后重新开始
-- 鼠标：点击开始、初始武器、暂停、升级和重开按钮
+- 鼠标：点击开始、初始炮台、暂停、升级和重开按钮
 
 ### Android
 
-- 点击开始并选择初始武器后，在非按钮区域按住并拖动：呼出浮动摇杆并移动
+- 点击开始并选择初始炮台后，在非按钮区域按住并拖动：呼出浮动摇杆并移动
 - 松开手指：停止移动并隐藏摇杆
-- 武器自动寻找并攻击目标，无独立攻击按键
+- 炮台自动寻找并攻击目标，无独立攻击按键
 
 ## 已实现系统
 
 - 完整游戏循环：开始、移动、自动战斗、经验升级、暂停、死亡结算和重开
-- 六武器触发首领战，金色六选二强化，最终首领、胜利、重玩或退出
+- 六炮台触发首领战，金色六选二强化，最终首领、胜利、重玩或退出
 - Boss Utility AI：六种可评分、冷却和重复惩罚约束的行为，按战场情境选择
 - 有边界的动态战斗导演：压力驱动刷怪间隔、批次、上限和敌人权重，残血重伤进入恢复窗口
 - 开发模式决策面板：显示 Boss 候选分数、压力、难度等级和实际刷怪参数（仅 Editor / Development Build，桌面 `F3`）
 - 默认中文，可切换英文；总音量、音乐、音效和静音设置本地保存
-- 开局武器三选一：选择完成前不计时、不刷怪，选中的武器占用第一个槽位
+- 开局炮台三选一：选择完成前不计时、不刷怪，选中的炮台占用第一个槽位
 - 三种数据驱动炮台：Pulse、Rapid、Laser Turret，各自拥有伤害、射速、射程、弹速、弹体和颜色
-- 六个独立武器槽位，同类武器不设额外上限，每把武器独立冷却和索敌
-- 普通升级与每三级武器升级，包含伤害、射速、射程、移速、生命和拾取范围
+- 六个独立炮台槽位，同类炮台不设额外上限，每座炮台独立冷却和索敌
+- 普通升级与每三级炮台升级，包含伤害、射速、射程、移速、生命和拾取范围
 - 三类数据驱动敌人：Chaser、Dasher、Berserker，支持权重和解锁时间
 - 敌人专属经验图标：Chaser 绿色菱形、Dasher 金色箭头、Berserker 紫色六边形
 - 地图边界、相机跟随、出生预警、受击反馈、运行时生成音效和最高纪录
 - Windows、WebGL、Android 多平台构建；Android 使用全屏浮动摇杆和安全区适配
 
-![Level-up choices](docs/images/03-level-up.png)
-
 ## 运行画面
 
-| 开始界面 | 战斗与命中反馈 | 结算 |
-|---|---|---|
-| ![Start screen](docs/images/01-start-screen.png) | ![Combat feedback](docs/images/04-combat-feedback.png) | ![Game over](docs/images/07-game-over.png) |
+README 首屏展示的是 v1.5.0 Windows 独立 Player 的真实运行截图；旧版升级、结算和 Profiler 图片仅作为历史迭代证据保留在 `docs/` 中。
 
 ## 工程设计
 
@@ -84,15 +79,15 @@ Profiler 截图记录了优化前后的代表帧，但两版玩法规模不同�
 
 ### 数据驱动配置
 
-`WeaponDefinition`、`EnemyDefinition`、`PlayerUpgradeData`、`BossDecisionConfig` 和 `CombatDirectorConfig` 使用 ScriptableObject 保存静态配置，运行时组件只维护当前状态。新增或调平武器、敌人、升级、Boss 权重和导演边界时，可以修改资源而不把参数散落在控制器代码中。
+`WeaponDefinition`、`EnemyDefinition`、`PlayerUpgradeData`、`BossDecisionConfig` 和 `CombatDirectorConfig` 使用 ScriptableObject 保存静态配置，运行时组件只维护当前状态。新增或调平炮台、敌人、升级、Boss 权重和导演边界时，可以修改资源而不把参数散落在控制器代码中。
 
 ### Boss Utility AI 与动态战斗导演
 
-`BossAgent` 收集距离、玩家速度、靠边程度、血量和时间，`BossUtilityBrain` 过滤冷却后对六种行为评分，并应用重复惩罚；决策与 `BossHazard` 的移动/预警/伤害执行分离。`CombatDirectorModel` 先让时间进程在十分钟内把基础压力从 `0.15` 提高到 `0.75`，再用生命、近期伤害、击杀率、武器数和场上人数进行最多 `+0.25/-0.15` 的短期修正。低血量不能把后期难度锁回开局；残血重伤恢复必须回血到 `55%` 才能重新触发。Director 不修改玩家或敌人的伤害数值。
+`BossAgent` 收集距离、玩家速度、靠边程度、血量和时间，`BossUtilityBrain` 过滤冷却后对六种行为评分，并应用重复惩罚；决策与 `BossHazard` 的移动/预警/伤害执行分离。`CombatDirectorModel` 先让时间进程在十分钟内把基础压力从 `0.15` 提高到 `0.75`，再用生命、近期伤害、击杀率、炮台数和场上人数进行最多 `+0.25/-0.15` 的短期修正。低血量不能把后期难度锁回开局；残血重伤恢复必须回血到 `55%` 才能重新触发。Director 不修改玩家或敌人的伤害数值。
 
 ### 索敌与成长
 
-`EnemyRegistry` 维护当前有效敌人，避免射击时反复执行场景查找。`TargetSelector` 先找到射程内最近距离，再在附近优先带中选择当前绝对生命值最低的目标；每把武器使用自己的射程、冷却和发射槽位。
+`EnemyRegistry` 维护当前有效敌人，避免射击时反复执行场景查找。`TargetSelector` 先找到射程内最近距离，再在附近优先带中选择当前绝对生命值最低的目标；每座炮台使用自己的射程、冷却和发射槽位。
 
 ### 移动端输入
 
@@ -102,8 +97,8 @@ Profiler 截图记录了优化前后的代表帧，但两版玩法规模不同�
 
 ```text
 Assets/
-  Art/             武器图标等项目美术资源
-  Data/            武器、敌人和升级 ScriptableObject
+  Art/             炮台图标等项目美术资源
+  Data/            炮台、敌人和升级 ScriptableObject
   Resources/Combat Boss 决策和动态战斗导演配置
   Editor/          发布设置、边界检查和多平台构建脚本
   Prefabs/         玩家、敌人、子弹、经验物和出生预警预制体
@@ -128,14 +123,14 @@ docs/
 
 ## 验证结果
 
-- PlayMode：`25/25 PASS`，覆盖原六武器闭环、Boss 六行为、冷却/重复惩罚、靠边偏好、半血环形弹幕、导演边界、防控血利用、恢复重新武装、升级选择和移动输入回归
+- PlayMode：`25/25 PASS`，覆盖六炮台闭环、Boss 六行为、冷却/重复惩罚、靠边偏好、半血环形弹幕、导演边界、防控血利用、恢复重新武装、升级选择和移动输入回归
 - 发布边界：`31/31 PASS`，覆盖 Main 场景、对象池、配置、Boss/导演配置、防利用参数、目标选择、版本和平台设置
 - Windows：v1.5.0 正式包构建成功，独立 Player 战斗、小首领与最终首领冒烟通过
 - WebGL：已尝试构建，在本地 Player DAG 阶段停滞且无产物
 - Android：v1.5.0 APK 构建成功（0 errors / 0 warnings），作者已完成基础真机试玩
 - GitHub Release v1.5.0 已上传 Windows ZIP、Android APK 与 SHA-256 校验文件
 
-详细过程与适用边界见 [v1.3.0 验证证据](docs/test-results/v1.3.0/README.md)。
+详细过程与适用边界见 [v1.5.0 验证证据](docs/test-results/v1.5.0/README.md)。
 
 ## 已知限制
 
